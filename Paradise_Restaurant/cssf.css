@@ -1,0 +1,293 @@
+/* Body styling for general text alignment, font, margin, padding, and background image */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/fastfood.jpg');
+    background-size: 100% 100%;
+}
+
+/* Styling for the welcome container, including background image */
+.welcome-container {
+    text-align: center;
+    background-image: url('images/fastfood1.jpg');
+    background-size: 100% 100%;
+}
+
+/* Header 1 styling for font size and color */
+h1 {
+    font-size: 4rem;
+    color: #FFA500; /* Orange color */
+}
+
+/* Header 2 and paragraph styling for font size and color */
+ p {
+    font-size: 2rem;
+    color: #FFFFFF; /* White color */
+}
+h2 {
+	font-size: 1.5rem;
+	color: #FFFFFF;
+	
+}
+h3 {
+	font-size: 3.5rem;
+	color: #FFA500;
+}
+
+/* Navigation bar styling for flex display and space distribution */
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Menu styling for text alignment, list type, margin, padding, and flex display */
+.menu {
+    text-align: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Menu list items styling */
+.menu > li {
+    position: relative;
+}
+
+/* Menu links styling for display, padding, text decoration, and color */
+.menu > li > a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: #FFFFFF; /* White color */
+}
+
+/* Hover effect for menu links and dropdown button */
+.menu > li > a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #FFA500; /* Orange color */
+}
+
+/* Dropdown content styling for display, position, background color, width, and z-index */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFA500; /* Orange color */
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Dropdown content list styling */
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Dropdown content links styling */
+.dropdown-content a {
+    color: #FFFFFF; /* White color */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hover effect for dropdown content links */
+.dropdown-content a:hover {
+    background-color: #CD853F; /* Darker orange color */
+}
+
+/* Display dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Nested dropdown content list items styling */
+.dropdown-content ul li {
+    position: relative;
+}
+
+/* Nested dropdown content display on hover */
+.dropdown-content ul li:hover .dropdown-content {
+    display: block;
+    left: 100%;
+    top: 0;
+}
+
+/* Menu item text color */
+.menu-item {
+    color: white;
+}
+
+/* About us section styling */
+.aboutus {
+    display: block;
+}
+
+/* Form container styling for club card form and book table form */
+#club-card-form,
+#book-table-form {
+    text-align: left;
+    background-color: black; /* Black background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+/* Form heading styling */
+#club-card-form h2,
+#book-table-form h2 {
+    text-align: center;
+    color: #FFA500; /* Orange color */
+}
+
+/* Table and form labels styling */
+#club-card-form table,
+#book-table-form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#club-card-form table td,
+#book-table-form table td {
+    padding: 10px;
+}
+
+#club-card-form label,
+#book-table-form label {
+    color: #FFFFFF; /* White color */
+}
+
+/* Input fields styling */
+#club-card-form input[type="text"],
+#club-card-form input[type="email"],
+#club-card-form input[type="tel"],
+#book-table-form input[type="text"],
+#book-table-form input[type="date"],
+#book-table-form input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: black;
+    color: #FFFFFF; /* White color */
+}
+
+/* Submit button styling */
+#club-card-form input[type="submit"],
+#club-card-form input[type="button"],
+#book-table-form input[type="submit"],
+#book-table-form input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #FFA500; /* Orange color */
+    border-radius: 2px;
+    color: #FFFFFF; /* White color */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Submit button hover effect */
+#club-card-form input[type="submit"]:hover,
+#club-card-form input[type="button"]:hover,
+#book-table-form input[type="submit"]:hover,
+#book-table-form input[type="button"]:hover {
+    background-color: #CD853F; /* Darker orange color */
+}
+
+/* Contact section styling for background color, text color, padding, border radius, width, and margin */
+#contact-section {
+    background-color: black; /* Orange background */
+    color: white; /* Black text */
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+/* Contact section heading styling */
+#contact-section h2 {
+    text-align: center;
+    font-size: 3.5rem;
+	color: #FFA500;
+    
+}
+
+/* Contact table styling */
+#contact-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Dropdowns in contact section */
+#NumberOfPeople, #Allergies {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Contact section table cell padding and text alignment */
+#contact-section th, #contact-section td {
+    padding: 10px;
+    text-align: center;
+	border: 1px solid black;
+}
+
+
+
+/* Table headers styling */
+#contact-section th {
+    background-color: white; /* Medium gray */
+    color: #000000; /* Black text */
+}
+
+/* Table cells styling */
+#contact-section td {
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+}
+
+/* Location section styling */
+#location-section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+ #demandChart {
+	right: 50%;
+	left: 37%;
+	color : white;
+    }
+ul.social-media-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 10px; /* Adjust this value to position the logos vertically */
+    }
+    
+    ul.social-media-links li {
+    display: inline;
+    margin: 0 10px;
+    }
+    
+    ul.social-media-links li a {
+    display: inline-block;
+    }
+    
+    ul.social-media-links li img.logo {
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+    }
+      

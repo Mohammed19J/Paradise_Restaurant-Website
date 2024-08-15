@@ -1,0 +1,219 @@
+<html>
+<head>
+    <!-- Title of the webpage -->
+    <title>FoodParadise</title>
+    
+    <!-- Link to the website's favicon -->
+    <link rel="icon" type="image" href="images/food.png">
+    
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="cssf.css">
+    
+    <!-- External JavaScript files for various functionalities -->
+    <script src="js/data-access.js"></script>
+    <script src="js/data-source.js"></script>
+    <script src="js/presentation.js"></script>
+    <script src="js/ClubCardCounter.js"></script>
+    <script src="js/buisness-logic.js"></script>
+
+
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Script for including ECharts library -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body onload="initializeLocalStorage(); generateChartData(); new ClubCardCounter();">
+    
+    <!-- Navigation bar -->
+    <nav class='nav'>
+        <div>
+            <ul class="menu">
+                <!-- Navigation menu items with onclick events for JavaScript functions -->
+                <li><a href="#" onclick="homeButton()">HOME</a></li>
+                <li><a href="#" onclick="aboutUs()">ABOUT US</a></li>
+                
+                <!-- Dropdown menu for MENU -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">MENU</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <!-- Submenu items for different categories -->
+                            <li><a href="#" onclick="loadContent('breakfast')">Breakfast</a></li>
+                            <li><a href="#" onclick="loadContent('salad')">Salad</a></li>
+                            <li><a href="#" onclick="loadContent('main_course')">First course/Main course</a></li>
+                            <li><a href="#" onclick="loadContent('drinks')">Drinks</a></li>
+                            <li><a href="#" onclick="loadContent('sweets')">Sweets</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <!-- Additional navigation links -->
+                <li><a href="#" id="location-link" onclick="showLocation()">LOCATION</a></li>
+                <li><a href="#" onclick="contact()">CONTACT</a></li>
+                <li><a href="#" onclick="showClubCardForm()">CLUB CARD</a></li>
+                <li><a href="#" onclick="showBookTableForm()">BOOK TABLE</a></li>
+                
+                <!-- Social media links -->
+                <ul class="social-media-links">
+                    <li><a href="http://www.facebook.com/Food Paradise Restaurant "><img src="images/facebook.jpg" alt="Facebook Logo" class="logo"></a></li>
+                    <li><a href="http://www.instagram.com/food_paradise_restaurant"><img src="images/instagram.jpg" alt="Instagram Logo" class="logo"></a></li>
+                    <li><a href="https://wa.me/0549863259"><img src="images/wahtsapplogo.png" alt="WhatsApp Logo" class="logo"></a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Description section with an anchor for scrolling -->
+    <a id="description"></a>
+    
+    <!-- Hidden section for embedded YouTube video -->
+    <div id="saas1" style="display:none;">
+        </br></br></br></br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tIiZBrDTrKQ?si=mXfHUZCR_OnJp-XZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </br></br></br></br>
+    </div>
+
+    <!-- Content section -->
+    <div id="content" class="content-section">
+        <div id="welcome-container" class="welcome-container">
+            <!-- Welcome message -->
+            <h1><br><br>WELCOME</h1>
+            <h2>TO FOOD PARADISE RESTAURANT</h2>
+            <br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br>
+        </div>
+    </div>
+
+    <!-- Club card registration form -->
+    <div id="club-card-form" style="display:none;">
+        <h2>Register for Club Card</h2>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <table>
+                <!-- Form fields for user details -->
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone:</label></td>
+                    <td><input type="tel" id="phone" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" id="registerButton" onclick="saveClubCardData()" value="Register"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" onclick="clearClubCard()" value="Clear form"></td>
+                </tr>
+            </table>
+		<table>
+		<tr>
+		<td> <h2>Number of Members: <span id="clubCardCount">0</span></h2> </td>
+		</tr>
+		</table>
+            </br></br></br>
+            <h2>Review about our website</h2>
+            </br></br></br>
+            
+            <!-- Embedded Google Form for website review -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfOb5fIApLGY6QTHJfMw7jjgaid7MOmHVZwwxVakZ1oyqt2Yw/viewform?embedded=true" width="400" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </br></br></br></br></br>
+        </form>
+    </div>
+
+    <!-- Book table form -->
+    <div id="book-table-form" style="display:none;">
+        <h2>Book a Table</h2>
+        <form id="bookTableForm" onsubmit="return validateBookTableForm()">
+            <table>
+                <!-- Form fields for booking details -->
+                <tr>
+                    <td><label for="customerName">Name:</label></td>
+                    <td><input type="text" id="customerName" name="customerName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="date">Date:</label></td>
+                    <td><input type="date" id="date" name="date" required></td>
+                </tr>
+                <tr>
+                    <td><label for="time">Time:</label></td>
+                    <td><input type="time" id="time" name="time" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Diners">Diners:</label></td>
+                    <td>
+                        <!-- Dropdown for selecting number of diners -->
+                        <select id="NumberOfPeople" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Allergies:">Allergies:</label></td>
+                    <td><textarea id="Allergies" placeholder="Allergies"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" onclick="saveBookTableData()" value="Book Table"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" onclick="clearBookTable()" value="Clear form"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- Contact section -->
+    <div id="contactsection" style="display:none;">
+        <h3> Contact Us </h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <!-- Contact details -->
+            <tr>
+                <td>Amal Kandeel</td>
+                <td>Amal.Kandeel@e.braude.ac.il</td>
+            </tr>
+            <tr>
+                <td>Mohammed Jaber</td>
+                <td>Mohammad.Jaber@e.braude.ac.il</td>
+            </tr>
+            <tr>
+                <td>Raeda Khoury</td>
+                <td>Raeda.khoury@e.braude.ac.il</td>
+            </tr>
+            <tr>
+                <td>Yosef Jirees</td>
+                <td>Yosef.Jirees@e.braude.ac.il</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Location section -->
+    <div id="location-section" style="display:none;">
+        <h3>Our Location</h3>
+        <p>Sderot Nesi'ei Israel 101, Braude</p>
+        <!-- Embedding Google Map -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.406532146724!2d35.28015457397584!3d32.913855876983234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c33e41201da93%3A0xee7b4a64461d4ece!2z15TXnteb15zXnNeUINeU15jXm9eg15XXnNeV15LXmdeqINec15TXoNeT16HXkNeZ150g15DXldeo15gg15HXqNeQ15XXk9eUINeb16jXnteZ15DXnA!5e0!3m2!1sen!2sil!4v1719672070252!5m2!1sen!2sil" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Hidden section for chart display -->
+    <div id="demandChart" style="display:none;"></div>
+
+</body>
+</html>
