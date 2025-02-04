@@ -60,24 +60,6 @@ FoodParadise/
 - **Location & Contact Info (`index.html`)**
   - Displays restaurant details and an embedded Google Map.
 
-## Screenshots
-### Home Page
-![Home Page](images/homepage.png)
-
-### Menu Dropdown
-![Menu Dropdown](images/menu-dropdown.png)
-
-### Club Card Registration
-![Club Card Form](images/club-card-form.png)
-
-### Table Booking with Demand Chart
-![Table Booking](images/book-table.png)
-
-## Future Improvements
-🔹 Implement a backend (Node.js/Express with a database).  
-🔹 Add user authentication for login and profile management.  
-🔹 Enhance styling for better UI/UX.  
-
 ## Contributing
 If you’d like to contribute:
 1. Fork the repository.
